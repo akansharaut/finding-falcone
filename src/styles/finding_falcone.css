@@ -1,0 +1,16 @@
+.content {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.finding-falcone{
+    text-align: center;
+}
+
+.finding-button {
+    background-color: skyblue;
+    font-size: 25px;
+    text-align: center;
+    margin: 20px 0;
+}
