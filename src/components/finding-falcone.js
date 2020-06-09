@@ -3,11 +3,12 @@ import Dropdown from './dropdown';
 import Radio from './radio';
 import { fetchPlanets } from '../thunk/fetchPlanets';
 import { fetchVehicles } from '../thunk/fetchingVehicles';
-import { fetchFalconeToken, getFindingFalcone } from '../thunk/findingFalcone';
+import { fetchFindingFalcone } from '../thunk/findingFalcone';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getSelectedPlanets, getPlanets, getVehicles, getSelectedVehicles } from '../reducers/index';
-import '../styles/finding_falcone.css'
+import '../styles/finding_falcone.css';
+import { Link } from 'react-router-dom';
 
 class FindingFalcone extends Component {
     constructor(props) {
@@ -24,15 +25,13 @@ class FindingFalcone extends Component {
     findingFalcone() {
         const { selectedPlanets, selectedVehicles } = this.props;
         
-        this.props.fetchFalconeToken({
+        this.props.fetchFindingFalcone({
             selectedPlanets: [selectedPlanets.Destination_1, 
                 selectedPlanets.Destination_2,
                 selectedPlanets.Destination_3,
                 selectedPlanets.Destination_4],
             selectedVehicles
         });
-        console.log(selectedPlanets);
-        console.log(selectedVehicles);
     }
 
     getDestinationTwo(planets, selectedPlanets) {
@@ -90,7 +89,7 @@ class FindingFalcone extends Component {
     }
 
     render() {
-        const { planets, vehicles, selectedPlanets, selectedVehicles} = this.props;
+        const { planets, vehicles, selectedPlanets} = this.props;
         const heading = "Destination";
 
         return (
@@ -118,7 +117,7 @@ class FindingFalcone extends Component {
                         {this.getVehiclesListFour(vehicles, selectedPlanets)}
                     </div>
                 </div>
-                <button className="finding-button" onClick={this.findingFalcone}>Finding Falcone</button>
+                <Link to="/falcone" className="finding-button" onClick={this.findingFalcone}>Finding Falcone</Link>
             </div>
         );
     };
@@ -134,8 +133,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
     fetchPlanets: fetchPlanets,
     fetchVehicles: fetchVehicles,
-    fetchFalconeToken: fetchFalconeToken,
-    getFindingFalcone: getFindingFalcone
+    fetchFindingFalcone: fetchFindingFalcone
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(FindingFalcone);

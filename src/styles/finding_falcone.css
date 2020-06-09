@@ -12,5 +12,12 @@
     background-color: skyblue;
     font-size: 25px;
     text-align: center;
-    margin: 20px 0;
+    margin: 50px auto;
+    display: block;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    text-decoration: none;
 }

@@ -1,4 +1,4 @@
-import { SET_PLANETS, SET_VEHICLES, GET_PLANET, GET_VEHICLE } from "../constants/index";
+import { SET_PLANETS, SET_VEHICLES, GET_PLANET, GET_VEHICLE, GET_PLANET_NAME } from "../constants/index";
 
 export function setPlanets(payload) {
   return { 
@@ -28,4 +28,10 @@ export function getVehicle(vehicle) {
   }
 }
 
+export function setPlanetName(planetName) {
+  return {
+    type: GET_PLANET_NAME,
+    planetName
+  }
+}
 
